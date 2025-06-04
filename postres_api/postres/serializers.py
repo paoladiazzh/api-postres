@@ -1,7 +1,7 @@
 from rest_framework import serializers
+from .models import Postre
 
-class PostreSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    nombre = serializers.CharField(max_length=100)
-    sabor = serializers.CharField(max_length=50)
-    tamanio = serializers.CharField(max_length=10)
+class PostreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Postre
+        fields = '__all__'

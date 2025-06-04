@@ -1,9 +1,11 @@
 from django.db import models
 
-#Para referencia
-class Postre:
-    def __init__(self, id, nombre, sabor, tamanio):
-        self.id = id
-        self.nombre = nombre
-        self.sabor = sabor
-        self.tamanio = tamanio
+class Postre(models.Model):
+    nombre = models.CharField(max_length=100)
+    sabor = models.CharField(max_length=50)
+    tamanio = models.CharField(max_length=20)
+    # Campo para cumplir el requisito de relación
+    bebida_sugerida_id = models.IntegerField(null=True, blank=True) 
+
+    def __str__(self):
+        return f"{self.nombre} (Sabor: {self.sabor})"
